@@ -437,6 +437,13 @@ function Uploadfs() {
   };
 
   /**
+   * @@TODO add docs
+   **/
+   self.copy = function(src, dst, callback) {
+    return self._storage.copyBlob(src, dst, callback);
+   }
+
+  /**
    * Returns the image sizes array with which uploadfs was configured.
    * This may be of use if you must iterate over the various generated
    * images later.

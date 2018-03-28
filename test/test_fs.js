@@ -92,7 +92,7 @@ describe('UploadFS Local', function () {
         });
       },
       testDelete: cb => {
-        uploadfs.delete(srcFile, e => {
+        uploadfs.remove(srcFile, e => {
           assert(!e, 'Delete file succeeds');
           assert(!fs.existsSync(infile), 'uploadfs delete file is gone from local fs');
           return cb(null);
