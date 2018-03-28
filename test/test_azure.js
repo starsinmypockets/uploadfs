@@ -65,4 +65,17 @@ describe('UploadFS Azure', function() {
       done();
     });
   });
+  
+  it('Azure test copyOut should fail', done => {
+    const ogFile = fs.readFileSync('test.txt', {encoding: 'utf8'});
+    const tmpFileName = new Date().getTime() + '_text.txt';
+
+    uploadfs.copyOut(infile, tmpFileName, {}, (e, res) => {
+      console.log(e, res);
+      assert(e);
+      assert(e.name === 'StorageError');
+      assert(e.message === 'NotFound');
+      done();
+    });
+  });
 });
